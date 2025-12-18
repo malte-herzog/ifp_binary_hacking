@@ -1,0 +1,60 @@
+\section{Mole Mania Basics - Die generelle Spiellogik}
+\subsection{Einleitung}
+In diesem klassischen Action-Knobelspiel, welches vom berühmten Shigeru Miyamoto entwickelt wurde,
+spielt man einen Maulwurf namens "Muddy Mole" der seine Familie vor dem bösen Bauern Jinbe retten will. \\
+Für das weitere Verständis unseres Reverse Engineering ist es wichtig, ein grundlegendes, oberflächliches 
+Verständnis vom Spiel selbst zu erlangen. \\
+Generell ist es deine Aufgabe, Muddy zum Ausgang des Levels zu führen und am Ende einen Boss zu besiegen. \\
+Zur Veranschaulichung zeigen die nächsten zwei Bilder zwei Räume, die man durchqueren muss, um das erste 
+Level zu schaffen. \\
+
+\begin{figure}[H]
+    \centering
+    % Erstes Bild
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Bilder/Bild1.png}
+        \caption{irgendwo im ersten Level}
+        \label{fig:enter-label}
+    \end{minipage}
+    \hfill
+    % Zweites Bild
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Bilder/Bild2.png}
+        \caption{irgendwo im ersten Level}
+        \label{fig:enter-label}
+    \end{minipage}
+\end{figure}
+
+Die grün markierten Felder sind die Startfelder, wo man anfängt wenn man den Raum betritt. Das rote Feld 
+ist das Ziel, dort kommt man in den nächsten Raum. \\
+Alle blau markierten Objekte sind Objekte mit dem man auf irgendeiner Art und Weise interagiert. Ein paar 
+Objekte helfen einen um ans Ziel zu kommen und ein paar Objekte hindern einen um ans Ziel zu kommen. \\
+
+\subsection{Muddy Mole}
+Wie bereits schon erwähnt spielt man einen Maulwurf, der mit allem möglichem in einem Raum interagieren kann. 
+An seine Grenzen kommt er, wenn er 4 mal Schaden erlitten hat, dann folgt daraufhin ein Raum Neustart.\\
+Was dem Spiel einen ganz eigenen Charakter gibt, ist die Möglichkeit sich in die Erde zu graben. Dadurch
+hat quasi jeder Raum eine zwei Spielflächen: Eine Oberfläche, oft mit Gegnern und einen unterirdischen Bereich,
+wo oft Items zu finden sind. Einschränkungen bilden sich dadurch wieder, dass man sich nicht überall runtergraben 
+kann und nicht überall hingraben kann.\\
+
+\begin{figure}[H]
+    \centering
+    % Erstes Bild
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Bilder/Bild3.png}
+        \caption{obere Spielfläche}
+        \label{fig:enter-label}
+    \end{minipage}
+    \hfill
+    % Zweites Bild
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Bilder/Bild4.png}
+        \caption{unterirdische Spielfläche}
+        \label{fig:enter-label}
+    \end{minipage}
+\end{figure}

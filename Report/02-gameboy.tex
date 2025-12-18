@@ -1,0 +1,27 @@
+\section{Der Game Boy und unsere Cardridge}
+
+Mole Mania ist für den Game Boy (Game Boy Classic) entwickelt worden. 
+Der Game Boy hat eine Sharp LR35902 CPU verbaut, welches eine Mischung aus 
+dem Intel 8080 und dem Zilog Z80 ist. Das heißt, es handelt sich um eine 
+8 Bit CPU mit einem 16 bit Adressraum. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Bilder/Gameboy.jpg}
+    \caption{Nintendo Game Boy Classic}
+    \label{fig:enter-label}
+\end{figure}
+
+Der Speicheraufbau des Game Boy's sieht folgendermaßen aus:
+\begin{itemize}
+    \item 0000 - 3FFF: ROM Bank00
+    \item 4000 - 7FFF: ROM Bank01 - 07
+    \item 8000 - 9FFF: VRAM
+    \item A000 - BFFF: External RAM
+    \item C000 - DFFF: WRAM
+    \item E000 - FFFF: Echo RAM, OAM, I/O Register, HRAM \\
+\end{itemize}
+
+Wir nutzten Emulatoren, die das Spiel auf einem Nicht-Game-Boy-System ausführen 
+konnten, sodass es wirkte, als liefe es in seiner ursprünglichen Umgebung. Besonders 
+wichtig für unser Projekt war dabei die Nachbildung von Prozessor und Speicher.

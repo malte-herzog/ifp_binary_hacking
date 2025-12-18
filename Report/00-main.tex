@@ -5,6 +5,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algpseudocode}
 \usepackage{graphicx}
+\usepackage{float} % enables [H] float placement
 \ifCLASSOPTIONcompsoc
   \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
 \else
@@ -32,28 +33,36 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Binary Hacking: Your Topic Here}
+\title{Binary Hacking:\\Reverse Engineering von "Mole Mania"}
 
 \author{
-\IEEEauthorblockN{Your Name Here}
-\IEEEauthorblockA{\textit{Beginner's Practical, B.Sc. Computer Science} \\
-\textit{Heidelberg University, Germany}\\
-your.email@here.com}
+\IEEEauthorblockN{Malte Herzog, Luke Böhler, Cemile Büyükkakac}
+\IEEEauthorblockA{\textit{Fortgeschrittenen Praktikum, Informatik - Bachelor} \\
+\textit{Universität Heidelberg, Deutschland}\\
+malte.herzog.klemenz@gmail.com}
 }
 
 \maketitle
 
 \begin{abstract}
-	(Optional) Very briefly (two to three sentences) describe your overarching topic
+	Unser Ziel war es, das Gameboy Spiel "Mole Mania" zu zerlegen und ROM-Hacking zu betreiben.
+  Dafür nutzten wir verschiedene Reverse Engineering Tools, die uns im Rahmen des Praktikums 
+  zur Verfügung standen, insbesondere Radare2. Insbesondere veränderten wir logische und 
+  graphische Aspekte des Spieles.
 \end{abstract}
 
 % \begin{IEEEkeywords}
 % component, formatting, style, styling, insert
 % \end{IEEEkeywords}
 
-\input{01-question01}
-\input{02-question02}
-\input{03-question03}
+\input{01-basics}
+\clearpage
+\input{02-gameboy}
+\input{03-tools}
+\clearpage
+\input{04-question01}
+\input{05-question02}
+\input{06-question03}
 
 % Only if you have references
 \bibliographystyle{IEEEtran}

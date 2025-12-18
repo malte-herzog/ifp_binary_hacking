@@ -1,0 +1,35 @@
+\section{Unsere Tools}
+
+Verschiedene Tools, die uns vom Praktikum oder die wir selber gefunden haben, halfen uns beim verstehen des 
+Speilflusses und beim schreiben unserer Cheats.
+
+\subsection{Unsere Emulatoren}
+Als Emulatoren benutzten wir hauptsächlich mGBA und SameBoy. Die genannten Emulatoren haben weitere Funktionen 
+die uns geholfen haben mit dem reproduziertem System zu arbeiten:
+\begin{itemize}
+    \item Memory-Search
+    \item RAM-Viewer
+    \item VRAM-Viewer
+    \item Debugger
+\end{itemize}
+
+\subsection{Unsere Reverse Engineering Tools}
+
+Um unsere .gb Datei zu disassemblen, benutzten wir ausschließlich Radare2 und Ghidra. \\
+
+Ghidra hatte die Funktionaliät, den Assemblercode in Pseudo-C-Code darzustellen. Es stellte sich jedoch heraus, 
+dass die fehlenden Variablen- und Funktionsnamen ein wesentlicher Aspekt waren, weshalb der C-Code für uns nicht wesentlich leichter zu verstehen war. \\
+
+Da uns Radare2 im Praktikum vorgestellt worden ist und wir eine Palette an Funktionen erklärt bekommen haben, konnten wir einiges damit herausfinden.\\
+Häufig verwendete Befehle: 
+\begin{itemize}
+    \item $/$x (zum suchen exakter Hexzahlenfolgen)
+    \item axt (findet Referenz zu dieser Adresse)
+\end{itemize}
+
+\subsection{Python}
+Für unseren Wrapper, um unsere Cheats spielerisch zu gestalten, benutzten wir Python als Programmiersprache. 
+Benutzte Libraries:
+\begin{itemize}
+    \item tkinter
+\end{itemize}
