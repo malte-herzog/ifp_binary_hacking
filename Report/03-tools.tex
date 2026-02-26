@@ -1,13 +1,17 @@
 \section{Unsere Tools}
 
-Verschiedene Tools, die uns vom Praktikum oder die wir selber gefunden haben, halfen uns beim verstehen des 
-Speilflusses und beim schreiben unserer Cheats.
+Verschiedene Tools, die uns vom Praktikum bereitgestellt worden sind oder die wir selber gefunden haben, halfen uns beim verstehen des 
+Spielflusses und beim schreiben unserer Cheats.
 
 \subsection{Unsere Emulatoren}
-Als Emulatoren benutzten wir hauptsächlich mGBA und SameBoy. Die genannten Emulatoren haben weitere Funktionen 
+
+Wir nutzten Emulatoren, die das Spiel auf einem Nicht-Game-Boy-System ausführen 
+konnten, sodass es wirkte, als liefe es in seiner ursprünglichen Umgebung. Besonders 
+wichtig für unser Projekt war dabei die Nachbildung von Prozessor und Speicher.
+
+Als Emulatoren benutzten wir hauptsächlich \textbf{mGBA} und \textbf{SameBoy}. Die genannten Emulatoren haben weitere Funktionen 
 die uns geholfen haben mit dem reproduziertem System zu arbeiten:
 \begin{itemize}
-    \item Memory-Search
     \item RAM-Viewer
     \item VRAM-Viewer
     \item Debugger
@@ -25,6 +29,10 @@ Häufig verwendete Befehle:
 \begin{itemize}
     \item $/$x (zum suchen exakter Hexzahlenfolgen)
     \item axt (findet Referenz zu dieser Adresse)
+    \item iS (zeigt in der Tabelle die Rombanks an)
+    \item e hex.cols = 10 (verändert die Anzahl der Spalten der Ausgabe)
+    \item px (gibt ein hexdump aus)
+    \item e hex.pairs = false (verändert die Ausgabe)
 \end{itemize}
 
 \subsection{Python}
