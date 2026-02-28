@@ -1,20 +1,49 @@
-\section{Wie manipuliert man den Spawn der Gegner?}
+\section{Wie spawnt ein Gegner und wie wird er angezeigt?}
 
-\subsection{Problem}
+\subsection{Methodik}
 
-Describe the problem the interviewee is expected to solve. If applicable
-mention constraints like runtime or memory complexity, coding style, edge
-cases, etc. If you use information from external sources,
-like~\cite{McDowell_Cracking_2015}, consider a citation if it is a book or
-article. For blog entries or other links a footnote with a URL will suffice.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Bilder/Frage3_Graph.png}
+    \caption{Übersichtsgraph}
+    \label{fig:enter-label}
+\end{figure}
 
-\subsection{Baseline Solution}
+Wie am Graphen zu sehen fängt es im Bereich 0xC240 - 0xC3e0 an. 
+Dort stehen die Logikwerte der Objekte, wie zum Beispiel die Position vom Gegner. 
+Beim Betreten eines Raumes wird folgendende if-Bedingung überprüft:
 
-Give the solution to the previously described problem. Talk about possible
-pitfalls and hints you could give the interviewee. Show code snippets where
-applicable. You may, of course, also use graphics and plots.
+if 0xceb0 == 0, dann muss kein Gegner gespawnt werden
+falls nein dann schreibe unter anderem die Werte in 0xC240 - 0xC260 rein.
+Die Anzahl der zu spawnenden Monster wird an der Adresse 0xCEB0 gespeichert. Und diese Daten kommen 
+ursprünglich von 0x1c4e0d: 
 
-\subsection{(Optional) Post-Interview Experiences}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Bilder/Gegnerspawn_Speicher.png}
+    \caption{speicher}
+    \label{fig:enter-label}
+\end{figure}
 
-How was the question received, did interviewees struggle with a particular part
-the most.
+Und damit der Algorithmus weiß an welcher Stelle er einlesen muss gibt es für jeden Raum eine weitere Tabelle:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Bilder/tabelle1.png}
+    \caption{speicher}
+    \label{fig:enter-label}
+\end{figure}
+
+Jetzt ist die Blackbox und die logikwerte des Maulwurfs werden übersetzt in Tiles, sodass wir uns jetzt auf einer Tileebene befinden.
+Ein Metaobjekt besteht aus 4 Objektsprites. Und jeder Objektsprite besteht aus 4 bytes:
+nulltes Byte: Y Position
+erstes Byte: X Position
+zweites Byte: Tile number
+drittes Byte: Attribute
+
+Mithilfe des OAM DMG Transfer (wenn man an Adresse 0xff46 schreibt) werden die Daten in den OAM Bereich kopiert. Die Objekte werden nun angezeigt.
+
+\subsection{Ergebnis}
+
+Wir können jetzt die Tabelle der zu spawnenden Monster verändern und somit in jedem Raum bestimmen wo und wie viele Monster spawnen.
+Es gibt es Limit von insgesamt 16 Monstern, da dafür der vorgegebene Speicher nicht ausreicht.
+In unserem Roomeditor können wir jetzt auch Monster platzieren.
