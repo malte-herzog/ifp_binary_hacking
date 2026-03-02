@@ -1,41 +1,56 @@
 \section{Wie verändert man den Levelaufbau? - Metatilemanipulation}
 
-\subsection{Ziel}
-
-Unser Ziel ist es ein Leveleditor zu erstellen, bei dem wir jeden Raum des ersten Levels individuell verändern können.
-Es soll möglich sein die Metatiles einzelnt verändern zu können und somit die Möglichkeit hat, ein komplett neues eigenes Level zu erstellen.
-
 \subsection{Methodik}
-
 Durch Durchsuchen des WRAM's fanden wir folgenden Bereich: 0xCA00 - 0xCC3F. Dort ist der aktuell geladene Raum gespeichert, welcher aus einem
-9x10 Metatiles Feld besteht.
-Es wird abwechselnd das Metatile von der Oberwelt und das Metatile von der Unterwelt gespeichert. 
-Beim betreten eines Raumes wird die Funktion fcn.1ea2 aufgerufen, welche alle Werte im genannten Bereich auf die entsprechende Metatile-ID setzt.
-Beim zurückverfolgen der Werte fanden wir heraus wo die Räume gespeichert sind. Die Metatile-ID's der Räume im ersten Level sind in 
-der 29. Rombank gespeichert, im Bereich folgender virtuellen Adressen: 0x001c414d - 0x001c4c8c. Wenn man mithilfe von Radare2 den Hexdump richtig 
-formatiert, entsteht folgende Ausgabe:
+9x10 Metatiles Feld besteht. Metatiles sind die tatsächlichen Bausteine, aus die eine Level besteht und die man als Spieler wahrnimmt.
+Ein Metatile besteht aus 4 Tiles. Es wird abwechselnd das Metatile von der Oberwelt und das Metatile von der Unterwelt gespeichert. \\
+Beim Betreten eines Raumes wird die Funktion fcn.1EA2 aufgerufen, welche alle Werte im genannten Bereich auf die entsprechende Metatile-ID setzt.\\
+Beim Zurückverfolgen der Werte fanden wir heraus wo die Räume gespeichert sind.\\
+Im folgenden Bereich virtueller Adressen sind die oberirdischen Räume gespeichert: 0x001C414D - 0x001C46EC. Die unterirdischen Räume sind direkt
+dahinter gespeichert, also im Bereich: 0x001C46ED - 0x001C4C8C.\\
+Wenn man mithilfe von Radare2 den Hexdump richtig formatiert, entsteht folgende Ausgabe:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{Bilder/Metatileausgabe.png}
-    \caption{2 Räume als hexdump}
+    \includegraphics[width=0.8\linewidth]{Bilder/05-question02_01.png}
+    \caption{Metatileausgabe von Raum 1 und Raum 2}
     \label{fig:enter-label}
 \end{figure}
 
-Bei der Ausgabe kann man an der rechten Spalte, welche eine extended Ascii Interpretation ist, 
-gut zwei Räume sehen.
-
-\subsection{Ergebnis}
-Wir erstellten einen Leveleditor, damit kann man jeden einzelnen Raum des ersten Levels individuell
-verändern.
-Er sieht folgendermaßen aus:
+In der rechten Spalte der Ausgabe, welche eine extended ASCII Interpretation ist, kann man gut zwei Räume sehen. Die folgenden zwei 
+Bilder sind die tatsächlichen Räume, von Raum 1 und Raum 2, im Spiel.
 
 \begin{figure}[H]
     \centering
     % Erstes Bild
     \begin{minipage}{0.45\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Bilder/Roomeditor1.png}
+        \includegraphics[width=\linewidth]{Bilder/05-question02_02.png}
+        \caption{Raum 1}
+        \label{fig:enter-label}
+    \end{minipage}
+    \hfill
+    % Zweites Bild
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Bilder/05-question02_03.png}
+        \caption{Raum 2}
+        \label{fig:enter-label}
+    \end{minipage}
+\end{figure}
+
+(Hier fehlt noch: Bild von Luke vom 19.2 mit Kugelspawn, Spike Boss Raum etc.)
+
+\subsection{Ergebnis}
+Wir erstellten einen Leveleditor, womit man jeden einzelnen Raum des ersten Levels individuell verändern.
+Er funktioniert und sieht folgendermaßen aus:
+
+\begin{figure}[H]
+    \centering
+    % Erstes Bild
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Bilder/05-question02_04.png}
         \caption{erstes Fenster}
         \label{fig:enter-label}
     \end{minipage}
@@ -43,7 +58,7 @@ Er sieht folgendermaßen aus:
     % Zweites Bild
     \begin{minipage}{0.45\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Bilder/Roomeditor2.png}
+        \includegraphics[width=\linewidth]{Bilder/05-question02_05.png}
         \caption{zweites Fenster}
         \label{fig:enter-label}
     \end{minipage}

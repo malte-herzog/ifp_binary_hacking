@@ -2,14 +2,26 @@
 
 \subsection{Methodik}
 
+(Graph noch verändern!!!!!!!!!!)
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{Bilder/Frage3_Graph.png}
+    \includegraphics[width=0.8\linewidth]{Bilder/06-question03_01.png}
     \caption{Übersichtsgraph}
     \label{fig:enter-label}
 \end{figure}
 
-Wie am Graphen zu sehen fängt es im Bereich 0xC240 - 0xC3e0 an. 
+Der vorangegangene Graph stellt eine Übersicht dar, wie ein Monster spawnt, angefangen auf einer Metalogik und endend 
+auf einer Sprite Ebene. \\
+Es fängt in der 29. Rombank im Bereich: 0x001C4E0D - 0x001C4F14 an. Dort stehen folgende Daten:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Bilder/06-question03_02.png}
+    \caption{radare2 Ausgabe}
+    \label{fig:enter-label}
+\end{figure}
+
+Wie am vorangegangenen Graphen zu sehen fängt es im Bereich 0xC240 - 0xC3e0 an. 
 Dort stehen die Logikwerte der Objekte, wie zum Beispiel die Position vom Gegner. 
 Beim Betreten eines Raumes wird folgendende if-Bedingung überprüft:
 
@@ -18,17 +30,10 @@ falls nein dann schreibe unter anderem die Werte in 0xC240 - 0xC260 rein.
 Die Anzahl der zu spawnenden Monster wird an der Adresse 0xCEB0 gespeichert. Und diese Daten kommen 
 ursprünglich von 0x1c4e0d: 
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{Bilder/Gegnerspawn_Speicher.png}
-    \caption{speicher}
-    \label{fig:enter-label}
-\end{figure}
-
 Und damit der Algorithmus weiß an welcher Stelle er einlesen muss gibt es für jeden Raum eine weitere Tabelle:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{Bilder/tabelle1.png}
+    \includegraphics[width=0.8\linewidth]{Bilder/06-question03_03.png}
     \caption{speicher}
     \label{fig:enter-label}
 \end{figure}
