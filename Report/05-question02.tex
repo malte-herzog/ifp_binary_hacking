@@ -39,27 +39,62 @@ Bilder sind die tatsächlichen Räume, von Raum 1 und Raum 2, im Spiel.
     \end{minipage}
 \end{figure}
 
-(Hier fehlt noch: Bild von Luke vom 19.2 mit Kugelspawn, Spike Boss Raum etc.)
+Um einen fertigen Metatile Raum mit Inhalt noch zu füllen, benötigt man noch die Information wo z.B. die Kanonenkugeln spawnen, die Spikes oder die Items.
+Diese Informationen sind auf dem folgenden Bild zu finden:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Bilder/05-question02_04.png}
+    \caption{weitere Raum Informationen}
+    \label{fig:enter-label}
+\end{figure}
+
+In rot markiert sind die Spawnlocations der Kanonenkugeln, in grün markiert sind die Spawnlocations der Spikes und in blau markiert die Spawnlocations der Items.
+Das System funktioniert immer gleich: Es wird jeder Raum in den drei Abschnitten nacheinander gespeichert, jeweils am Anfang mit der Information "wie viele?" und dann die jeweilige Location.
+Zum Beispiel: ersten Raum sind 4 Kanonenkugeln gespeichert, an der Position (3, 1); (2, 3); (4, 5); (5, 7). 
 
 \subsection{Ergebnis}
-Wir erstellten einen Leveleditor, womit man jeden einzelnen Raum des ersten Levels individuell verändern.
+Wir erstellten einen Room Editor, womit man jeden einzelnen Raum des ersten Levels individuell verändern.
 Er funktioniert und sieht folgendermaßen aus:
 
 \begin{figure}[H]
     \centering
     % Erstes Bild
-    \begin{minipage}{0.45\linewidth}
+    \begin{minipage}{0.49\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Bilder/05-question02_04.png}
-        \caption{erstes Fenster}
+        \includegraphics[width=\linewidth]{Bilder/05-question02_05.png}
+        \caption{oberirdischer View}
         \label{fig:enter-label}
     \end{minipage}
     \hfill
     % Zweites Bild
-    \begin{minipage}{0.45\linewidth}
+    \begin{minipage}{0.49\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Bilder/05-question02_05.png}
-        \caption{zweites Fenster}
+        \includegraphics[width=\linewidth]{Bilder/05-question02_06.png}
+        \caption{unterirdischer View}
         \label{fig:enter-label}
     \end{minipage}
 \end{figure}
+
+Man kann bei den zu sehenden Views den gewünschten Raum auswählen, den man verändern möchte. Man drücken auf den gewünschten 
+Raum kommt man in das folgende Fenster:
+
+\begin{figure}[H]
+    \centering
+    % Erstes Bild
+    \begin{minipage}{0.70\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Bilder/05-question02_07.png}
+        \caption{Room View}
+        \label{fig:enter-label}
+    \end{minipage}
+    \hfill
+    % Zweites Bild
+    \begin{minipage}{0.28\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Bilder/05-question02_08.png}
+        \caption{Metatiles Window}
+        \label{fig:enter-label}
+    \end{minipage}
+\end{figure}
+
+Beim drücken auf eines der Tiles, öffnet sich das Metatiles Window und man hat eine große Möglichkeit das Metatile zu verändern.

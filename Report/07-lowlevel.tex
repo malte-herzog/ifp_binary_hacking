@@ -32,7 +32,34 @@ WRAM Adresse 0xce52, speichert die Trefferpunkte des Maulwurfs. In der Funktion 
 an der Stelle 0x001d76df, wird dieser Wert um 1 verringert. Beim Überschreiben des Befehls z.B. mit 0x00, verliert man 
 ab sofort keine Trefferpunkte mehr. 
 
-\subsection{}
+\subsection{eingebauter Cheatcode}
 
-How was the question received, did interviewees struggle with a particular part
-the most.
+Das Spiel besitzt selbst schon die Möglichkeit einen eingebauten Cheatcode auszuführen. Folgender Cheatcode, der ermöglicht das man
+alle Items sofort bekommt, ist möglich: \\ 
+Left, Right, Left, B, B, Right, Left, Right, A, A \\
+Im Hintergrund ist Funktion fcn.00107f0a für den Cheatcode zuständig.
+Diese Funktion wird ständig aufgerufen und überprüft ob man den Cheatcode ausführen möchte:\\\\
+fcn.00107f0a () \{ \\
+\hspace*{2em} if ('Select' ist gedrückt) \{ \\
+\hspace*{4em} if ('korrekte Taste ist gedrückt') \{\\
+\hspace*{6em} erhöhe [0xd706]\\
+\hspace*{6em} if ([0xd706] == 0x0a) \{\\
+\hspace*{8em} 'erhalte alle Items'\\
+\hspace*{6em} \}\\
+\hspace*{6em} return\\
+\hspace*{4em} \}\\
+\hspace*{2em} \} else \{\\
+\hspace*{4em} return\\
+\hspace*{2em} \}\\
+\}\\
+
+Beim Ausführen des Cheatcodes muss die 'Select' Taste gedrückt sein. Und an der Adresse 0xd706 ist die Anzahl der richtig getätigten Inputs gespeichert.\\
+
+Den Cheatcode an sich, kann man auch modifizieren. Die Reihenfolge der zu drückenden Tasten sind ebenfalls gespeichert. Im folgenden Bereich
+sind sie zu finden: 0x00107f5b - 0x00107f64.
+
+\subsection{unendlich viele Items}
+
+An den vier folgenden WRAM Adressen wird gespeichert ob man das jeweilige Item besitzt: 0xce54 - 0xce57. Da das dritte und das vierte Item verbraucht werden kann, 
+gibt es eine Funktion, die die entsprechenden Bytes wieder auf 0 setzt. Beim überschreiben an der Stelle 0x104a35 und 0x104a37 passiert dies nicht mehr. 
+Das Ergebnis ist, dass man unendlich oft die Items einsetzten kann.
